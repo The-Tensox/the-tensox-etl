@@ -2,20 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/rust:latest
+      - image: circleci/python:latest
 
     steps:
       - checkout
-      - restore_cache:
-          key: project-cache
-      - run:
-          name: Switch to nightly
-          command: |
-            rustup default nightly
-      - run:
-          name: Build
-          command: |
-            cargo build
-      - run:
-          name: Test
-          command: cargo test
