@@ -7,19 +7,20 @@ Will either ingest synthetic data into the data warehouse, either gather world d
 
 Later we could think also of generating "synthetic data" from real world data using deep learning (probably via other components).
 
+## Installation
+
+```bash
+python3 -m virtualenv env
+source env/bin/activate
+pip install -R requirements.txt
+```
+
 ## Usage
+
+```bash
+wget -O heightmap.png https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73934/gebco_08_rev_elev_21600x10800.png
+```
 
 ```python
 python main.py
-```
-
-### Google Earth
-
-```bash
-conda env create -f env.yml
-conda activate etl
-```
-
-```python
-python google_earth.py
 ```
