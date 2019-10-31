@@ -137,8 +137,9 @@ def heightmap(mesh=False):
     print(tiles[0].shape, len(tiles))
     z = 0
     x = 0
-    for i in range(100):
-        x = i % nb_tiles # i % new_line * tiles[0].shape[0]
+
+    for i in range(50):
+        x = i % nb_tiles * tiles[0].shape[0]
         if i % nb_tiles == 0:
             z += tiles[0].shape[1]
         if mesh:
@@ -149,7 +150,7 @@ def heightmap(mesh=False):
         with PoolExecutor(max_workers=200) as executor:
             for _ in executor.map(send_data_to_server, data):
                 pass
-        print(len(data), "POSTS")
+        print(len(data) * (i+1), "POSTS")
 
 
 def plot_images():
@@ -167,7 +168,7 @@ def main():
     clear_objects()
     # create_grass_and_ground()
     # plot_images()
-    heightmap()
+    heightmap(True)
 
     """
     while True:
